@@ -1,0 +1,76 @@
+<Page x:Class="ActivityTracker.UI.Views.AppDetailPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ui="http://schemas.modernwpf.com/2019"
+      xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+      xmlns:vm="clr-namespace:ActivityTracker.UI.ViewModels"
+      mc:Ignorable="d"
+      d:DataContext="{d:DesignInstance Type=vm:AppDetailViewModel}"
+      Title="App Detail"
+      Background="{DynamicResource SystemControlBackgroundBaseLowBrush}">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="32,24">
+
+            <!-- Page title -->
+            <TextBlock Text="App Detail"
+                       FontSize="28" FontWeight="SemiBold"
+                       Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"
+                       Margin="0,0,0,24"/>
+
+            <!-- App selector -->
+            <ui:Card Width="320" Margin="0,0,0,16"
+                     Background="{DynamicResource SystemControlAcrylicElementBrush}"
+                     BorderBrush="{DynamicResource SystemControlForegroundTransparentBrush}"
+                     BorderThickness="1">
+                <StackPanel Margin="16,12">
+                    <TextBlock Text="Select Application"
+                               FontSize="14"
+                               Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                               Margin="0,0,0,8"/>
+                    <ComboBox ItemsSource="{Binding ProcessNames}"
+                              SelectedItem="{Binding SelectedProcess, Mode=TwoWay}"
+                              FontSize="14"
+                              IsEditable="False"/>
+                </StackPanel>
+            </ui:Card>
+
+            <!-- KPI -->
+            <ui:Card Width="280" Height="100" Margin="0,0,0,16"
+                     Background="{DynamicResource SystemControlAcrylicElementBrush}">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <TextBlock Text="Today's Total"
+                               FontSize="13"
+                               Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                               HorizontalAlignment="Center"/>
+                    <TextBlock Text="{Binding ProcessTodayTotal}"
+                               FontSize="28" FontWeight="Bold"
+                               Foreground="{DynamicResource SystemControlForegroundAccentBrush}"
+                               HorizontalAlignment="Center" Margin="0,4,0,0"/>
+                </StackPanel>
+            </ui:Card>
+
+            <!-- Hourly distribution chart -->
+            <ui:Card Margin="0,0,0,16"
+                     Background="{DynamicResource SystemControlAcrylicElementBrush}"
+                     BorderBrush="{DynamicResource SystemControlForegroundTransparentBrush}"
+                     BorderThickness="1">
+                <StackPanel Margin="20,16">
+                    <TextBlock Text="Hourly Distribution (Today)"
+                               FontSize="18" FontWeight="SemiBold"
+                               Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"
+                               Margin="0,0,0,16"/>
+                    <lvc:CartesianChart Series="{Binding ChartSeries}"
+                                        XAxes="{Binding ChartXAxes}"
+                                        YAxes="{Binding ChartYAxes}"
+                                        Height="320"
+                                        TooltipPosition="Top"
+                                        ZoomMode="X"/>
+                </StackPanel>
+            </ui:Card>
+
+        </StackPanel>
+    </ScrollViewer>
+</Page>

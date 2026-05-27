@@ -1,0 +1,122 @@
+<Page x:Class="ActivityTracker.UI.Views.DashboardPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ui="http://schemas.modernwpf.com/2019"
+      xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+      xmlns:vm="clr-namespace:ActivityTracker.UI.ViewModels"
+      mc:Ignorable="d"
+      d:DataContext="{d:DesignInstance Type=vm:DashboardViewModel}"
+      Title="Dashboard"
+      Background="{DynamicResource SystemControlBackgroundBaseLowBrush}">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="32,24">
+
+            <!-- Page title -->
+            <TextBlock Text="Dashboard"
+                       FontSize="28" FontWeight="SemiBold"
+                       Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"
+                       Margin="0,0,0,24"/>
+
+            <!-- KPI cards row -->
+            <WrapPanel Orientation="Horizontal" Margin="0,0,0,24">
+
+                <!-- Card: Total Today -->
+                <ui:Card Width="280" Height="120" Margin="0,0,16,16"
+                         Background="{DynamicResource SystemControlAcrylicElementBrush}"
+                         BorderBrush="{DynamicResource SystemControlForegroundTransparentBrush}"
+                         BorderThickness="1">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="Today's Total"
+                                   FontSize="14"
+                                   Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                                   HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding TotalToday}"
+                                   FontSize="36" FontWeight="Bold"
+                                   Foreground="{DynamicResource SystemControlForegroundAccentBrush}"
+                                   HorizontalAlignment="Center" Margin="0,8,0,0"/>
+                    </StackPanel>
+                </ui:Card>
+
+                <!-- Card: App Count -->
+                <ui:Card Width="280" Height="120" Margin="0,0,16,16"
+                         Background="{DynamicResource SystemControlAcrylicElementBrush}"
+                         BorderBrush="{DynamicResource SystemControlForegroundTransparentBrush}"
+                         BorderThickness="1">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <TextBlock Text="Apps Tracked"
+                                   FontSize="14"
+                                   Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                                   HorizontalAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,8,0,0">
+                            <TextBlock Text="{Binding AppCountToday}"
+                                       FontSize="36" FontWeight="Bold"
+                                       Foreground="{DynamicResource SystemControlForegroundAccentBrush}"/>
+                            <TextBlock Text=" apps"
+                                       FontSize="20"
+                                       Foreground="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+                                       VerticalAlignment="Bottom" Margin="6,0,0,4"/>
+                        </StackPanel>
+                    </StackPanel>
+                </ui:Card>
+
+            </WrapPanel>
+
+            <!-- Top 5 Apps chart -->
+            <ui:Card Margin="0,0,0,16"
+                     Background="{DynamicResource SystemControlAcrylicElementBrush}"
+                     BorderBrush="{DynamicResource SystemControlForegroundTransparentBrush}"
+                     BorderThickness="1">
+                <StackPanel Margin="20,16">
+                    <TextBlock Text="Top 5 Apps Today"
+                               FontSize="18" FontWeight="SemiBold"
+                               Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"
+                               Margin="0,0,0,16"/>
+                    <lvc:CartesianChart Series="{Binding ChartSeries}"
+                                        XAxes="{Binding ChartXAxes}"
+                                        YAxes="{Binding ChartYAxes}"
+                                        Height="300"
+                                        TooltipPosition="Top"/>
+                </StackPanel>
+            </ui:Card>
+
+            <!-- Top 5 list -->
+            <ui:Card Margin="0,0,0,16"
+                     Background="{DynamicResource SystemControlAcrylicElementBrush}"
+                     BorderBrush="{DynamicResource SystemControlForegroundTransparentBrush}"
+                     BorderThickness="1">
+                <StackPanel Margin="20,16">
+                    <TextBlock Text="Application Breakdown"
+                               FontSize="18" FontWeight="SemiBold"
+                               Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"
+                               Margin="0,0,0,12"/>
+                    <ItemsControl ItemsSource="{Binding TopApps}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Grid Margin="0,4" Height="32">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0"
+                                               Text="{Binding ProcessName}"
+                                               FontSize="14"
+                                               Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"
+                                               VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Column="1"
+                                               Text="{Binding TotalSeconds, Converter={StaticResource SecondsToTimeConverter}}"
+                                               FontSize="14" FontWeight="SemiBold"
+                                               Foreground="{DynamicResource SystemControlForegroundAccentBrush}"
+                                               VerticalAlignment="Center"/>
+                                </Grid>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
+            </ui:Card>
+
+        </StackPanel>
+    </ScrollViewer>
+</Page>
