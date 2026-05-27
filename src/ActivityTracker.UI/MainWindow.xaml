@@ -15,24 +15,12 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Custom title bar -->
-        <ui:TitleBar Grid.Row="0"
-                     Title="ActivityTracker"
-                     Icon="Assets/app.ico"
-                     Background="{DynamicResource SystemControlBackgroundBaseLowBrush}"
-                     Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}">
-            <ui:TitleBar.ExtendViewIntoTitleBar>
-                <ui:ExtendViewIntoTitleBar Trigger="True" />
-            </ui:TitleBar.ExtendViewIntoTitleBar>
-        </ui:TitleBar>
-
         <!-- NavigationView sidebar -->
         <ui:NavigationView x:Name="NavView"
-                           Grid.Row="1"
+                           Grid.Row="0"
                            IsBackButtonVisible="Collapsed"
                            IsSettingsVisible="True"
                            PaneDisplayMode="LeftCompact"

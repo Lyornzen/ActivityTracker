@@ -81,8 +81,8 @@
                                    Width="200" VerticalAlignment="Center"
                                    FontSize="14"
                                    Foreground="{DynamicResource SystemControlForegroundBaseHighBrush}"/>
-                        <ToggleSwitch IsOn="{Binding AutoStart, Mode=TwoWay}"
-                                      Command="{Binding ToggleAutoStartCommand}"/>
+                        <CheckBox IsChecked="{Binding AutoStart, Mode=TwoWay}"
+                                  VerticalAlignment="Center"/>
                     </StackPanel>
                 </StackPanel>
             </Border>

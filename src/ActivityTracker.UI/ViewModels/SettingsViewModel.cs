@@ -42,9 +42,12 @@ public partial class SettingsViewModel : ObservableObject
         _repository = repository;
     }
 
+    private bool _loading;
+
     [RelayCommand]
     public void Load()
     {
+        _loading = true;
         var config = _configManager.Load();
         ScanIntervalSeconds = config.ScanIntervalSeconds;
         RetentionDays = config.RetentionDays;
@@ -53,22 +56,23 @@ public partial class SettingsViewModel : ObservableObject
         PauseButtonText = config.IsPaused ? "Resume Monitoring" : "Pause Monitoring";
         Blacklist = new ObservableCollection<string>(config.BlacklistedProcesses);
         Whitelist = new ObservableCollection<string>(config.WhitelistedProcesses);
+        _loading = false;
     }
 
     partial void OnScanIntervalSecondsChanged(int value)
     {
-        SaveConfig();
+        if (!_loading) SaveConfig();
     }
 
     partial void OnRetentionDaysChanged(int value)
     {
-        SaveConfig();
+        if (!_loading) SaveConfig();
     }
 
-    [RelayCommand]
-    public void ToggleAutoStart()
+    partial void OnAutoStartChanged(bool value)
     {
-        AutoStart = !AutoStart;
+        if (_loading) return;
+
         SaveConfig();
 
         const string runKey = @"Software\Microsoft\Windows\CurrentVersion\Run";
@@ -79,12 +83,12 @@ public partial class SettingsViewModel : ObservableObject
             using var key = Registry.CurrentUser.OpenSubKey(runKey, writable: true);
             if (key == null) return;
 
-            if (AutoStart)
+            if (value)
                 key.SetValue("ActivityTracker", appPath);
             else
                 key.DeleteValue("ActivityTracker", throwOnMissingValue: false);
 
-            StatusMessage = AutoStart
+            StatusMessage = value
                 ? "Added to startup programs"
                 : "Removed from startup programs";
         }
