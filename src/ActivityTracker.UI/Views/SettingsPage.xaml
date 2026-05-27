@@ -100,7 +100,6 @@
 
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                         <TextBox Text="{Binding NewBlacklistItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                 PlaceholderText="e.g. explorer.exe"
                                  Width="200" Margin="0,0,8,0"/>
                         <Button Content="Add" Command="{Binding AddBlacklistItemCommand}"
                                 Width="60"/>
@@ -150,7 +149,6 @@
 
                     <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
                         <TextBox Text="{Binding NewWhitelistItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                 PlaceholderText="e.g. chrome.exe"
                                  Width="200" Margin="0,0,8,0"/>
                         <Button Content="Add" Command="{Binding AddWhitelistItemCommand}"
                                 Width="60"/>
