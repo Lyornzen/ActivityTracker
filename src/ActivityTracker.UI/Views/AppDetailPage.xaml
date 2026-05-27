@@ -21,7 +21,7 @@
                        Margin="0,0,0,24"/>
 
             <!-- App selector -->
-            <ui:Card Width="320" Margin="0,0,0,16"
+            <Border Width="320" Margin="0,0,0,16" CornerRadius="8"
                      Background="{DynamicResource SystemControlAcrylicElementBrush}"
                      BorderBrush="{DynamicResource SystemControlForegroundTransparentBrush}"
                      BorderThickness="1">
@@ -35,10 +35,10 @@
                               FontSize="14"
                               IsEditable="False"/>
                 </StackPanel>
-            </ui:Card>
+            </Border>
 
             <!-- KPI -->
-            <ui:Card Width="280" Height="100" Margin="0,0,0,16"
+            <Border Width="280" Height="100" Margin="0,0,0,16" CornerRadius="8"
                      Background="{DynamicResource SystemControlAcrylicElementBrush}">
                 <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                     <TextBlock Text="Today's Total"
@@ -50,10 +50,10 @@
                                Foreground="{DynamicResource SystemControlForegroundAccentBrush}"
                                HorizontalAlignment="Center" Margin="0,4,0,0"/>
                 </StackPanel>
-            </ui:Card>
+            </Border>
 
             <!-- Hourly distribution chart -->
-            <ui:Card Margin="0,0,0,16"
+            <Border Margin="0,0,0,16" CornerRadius="8"
                      Background="{DynamicResource SystemControlAcrylicElementBrush}"
                      BorderBrush="{DynamicResource SystemControlForegroundTransparentBrush}"
                      BorderThickness="1">
@@ -69,7 +69,7 @@
                                         TooltipPosition="Top"
                                         ZoomMode="X"/>
                 </StackPanel>
-            </ui:Card>
+            </Border>
 
         </StackPanel>
     </ScrollViewer>

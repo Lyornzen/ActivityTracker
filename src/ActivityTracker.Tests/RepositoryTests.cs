@@ -3,6 +3,7 @@ using ActivityTracker.Core.Models;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Logging;
 using Moq;
+using Xunit;
 
 namespace ActivityTracker.Tests;
 

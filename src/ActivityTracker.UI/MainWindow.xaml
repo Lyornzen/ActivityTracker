@@ -20,8 +20,7 @@
         </Grid.RowDefinitions>
 
         <!-- Custom title bar -->
-        <ui:TitleBar x:Name="TitleBar"
-                     Grid.Row="0"
+        <ui:TitleBar Grid.Row="0"
                      Title="ActivityTracker"
                      Icon="Assets/app.ico"
                      Background="{DynamicResource SystemControlBackgroundBaseLowBrush}"

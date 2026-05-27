@@ -20,7 +20,7 @@
                        Margin="0,0,0,24"/>
 
             <!-- Monitoring controls -->
-            <ui:Card Margin="0,0,0,12"
+            <Border Margin="0,0,0,12" CornerRadius="8"
                      Background="{DynamicResource SystemControlAcrylicElementBrush}"
                      BorderBrush="{DynamicResource SystemControlForegroundTransparentBrush}"
                      BorderThickness="1">
@@ -64,10 +64,10 @@
                                 Style="{StaticResource AccentButtonStyle}"/>
                     </StackPanel>
                 </StackPanel>
-            </ui:Card>
+            </Border>
 
             <!-- Startup -->
-            <ui:Card Margin="0,0,0,12"
+            <Border Margin="0,0,0,12" CornerRadius="8"
                      Background="{DynamicResource SystemControlAcrylicElementBrush}"
                      BorderBrush="{DynamicResource SystemControlForegroundTransparentBrush}"
                      BorderThickness="1">
@@ -85,10 +85,10 @@
                                       Command="{Binding ToggleAutoStartCommand}"/>
                     </StackPanel>
                 </StackPanel>
-            </ui:Card>
+            </Border>
 
             <!-- Blacklist -->
-            <ui:Card Margin="0,0,0,12"
+            <Border Margin="0,0,0,12" CornerRadius="8"
                      Background="{DynamicResource SystemControlAcrylicElementBrush}"
                      BorderBrush="{DynamicResource SystemControlForegroundTransparentBrush}"
                      BorderThickness="1">
@@ -131,10 +131,10 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </StackPanel>
-            </ui:Card>
+            </Border>
 
             <!-- Whitelist -->
-            <ui:Card Margin="0,0,0,12"
+            <Border Margin="0,0,0,12" CornerRadius="8"
                      Background="{DynamicResource SystemControlAcrylicElementBrush}"
                      BorderBrush="{DynamicResource SystemControlForegroundTransparentBrush}"
                      BorderThickness="1">
@@ -181,10 +181,10 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </StackPanel>
-            </ui:Card>
+            </Border>
 
             <!-- Maintenance -->
-            <ui:Card Margin="0,0,0,12"
+            <Border Margin="0,0,0,12" CornerRadius="8"
                      Background="{DynamicResource SystemControlAcrylicElementBrush}"
                      BorderBrush="{DynamicResource SystemControlForegroundTransparentBrush}"
                      BorderThickness="1">
@@ -203,7 +203,7 @@
                                 Width="120"/>
                     </StackPanel>
                 </StackPanel>
-            </ui:Card>
+            </Border>
 
             <!-- Status -->
             <TextBlock Text="{Binding StatusMessage}"

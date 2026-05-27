@@ -44,7 +44,7 @@
             <!-- KPI row -->
             <WrapPanel Orientation="Horizontal" Margin="0,0,0,16">
 
-                <ui:Card Width="240" Height="100" Margin="0,0,12,12"
+                <Border Width="240" Height="100" Margin="0,0,12,12" CornerRadius="8"
                          Background="{DynamicResource SystemControlAcrylicElementBrush}">
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                         <TextBlock Text="Total"
@@ -56,9 +56,9 @@
                                    Foreground="{DynamicResource SystemControlForegroundAccentBrush}"
                                    HorizontalAlignment="Center" Margin="0,4,0,0"/>
                     </StackPanel>
-                </ui:Card>
+                </Border>
 
-                <ui:Card Width="240" Height="100" Margin="0,0,12,12"
+                <Border Width="240" Height="100" Margin="0,0,12,12" CornerRadius="8"
                          Background="{DynamicResource SystemControlAcrylicElementBrush}">
                     <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                         <TextBlock Text="Daily Average"
@@ -70,12 +70,12 @@
                                    Foreground="{DynamicResource SystemControlForegroundAccentBrush}"
                                    HorizontalAlignment="Center" Margin="0,4,0,0"/>
                     </StackPanel>
-                </ui:Card>
+                </Border>
 
             </WrapPanel>
 
             <!-- Line chart -->
-            <ui:Card Margin="0,0,0,16"
+            <Border Margin="0,0,0,16" CornerRadius="8"
                      Background="{DynamicResource SystemControlAcrylicElementBrush}"
                      BorderBrush="{DynamicResource SystemControlForegroundTransparentBrush}"
                      BorderThickness="1">
@@ -91,10 +91,10 @@
                                         TooltipPosition="Top"
                                         ZoomMode="X"/>
                 </StackPanel>
-            </ui:Card>
+            </Border>
 
             <!-- Daily breakdown list -->
-            <ui:Card Margin="0,0,0,16"
+            <Border Margin="0,0,0,16" CornerRadius="8"
                      Background="{DynamicResource SystemControlAcrylicElementBrush}"
                      BorderBrush="{DynamicResource SystemControlForegroundTransparentBrush}"
                      BorderThickness="1">
@@ -130,7 +130,7 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </StackPanel>
-            </ui:Card>
+            </Border>
 
         </StackPanel>
     </ScrollViewer>

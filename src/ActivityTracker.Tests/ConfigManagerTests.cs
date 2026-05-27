@@ -2,6 +2,7 @@ using ActivityTracker.Core.Configuration;
 using ActivityTracker.Core.Models;
 using Microsoft.Extensions.Logging;
 using Moq;
+using Xunit;
 
 namespace ActivityTracker.Tests;
 

@@ -24,7 +24,7 @@
             <WrapPanel Orientation="Horizontal" Margin="0,0,0,24">
 
                 <!-- Card: Total Today -->
-                <ui:Card Width="280" Height="120" Margin="0,0,16,16"
+                <Border Width="280" Height="120" Margin="0,0,16,16" CornerRadius="8"
                          Background="{DynamicResource SystemControlAcrylicElementBrush}"
                          BorderBrush="{DynamicResource SystemControlForegroundTransparentBrush}"
                          BorderThickness="1">
@@ -38,10 +38,10 @@
                                    Foreground="{DynamicResource SystemControlForegroundAccentBrush}"
                                    HorizontalAlignment="Center" Margin="0,8,0,0"/>
                     </StackPanel>
-                </ui:Card>
+                </Border>
 
                 <!-- Card: App Count -->
-                <ui:Card Width="280" Height="120" Margin="0,0,16,16"
+                <Border Width="280" Height="120" Margin="0,0,16,16" CornerRadius="8"
                          Background="{DynamicResource SystemControlAcrylicElementBrush}"
                          BorderBrush="{DynamicResource SystemControlForegroundTransparentBrush}"
                          BorderThickness="1">
@@ -60,12 +60,12 @@
                                        VerticalAlignment="Bottom" Margin="6,0,0,4"/>
                         </StackPanel>
                     </StackPanel>
-                </ui:Card>
+                </Border>
 
             </WrapPanel>
 
             <!-- Top 5 Apps chart -->
-            <ui:Card Margin="0,0,0,16"
+            <Border Margin="0,0,0,16" CornerRadius="8"
                      Background="{DynamicResource SystemControlAcrylicElementBrush}"
                      BorderBrush="{DynamicResource SystemControlForegroundTransparentBrush}"
                      BorderThickness="1">
@@ -80,10 +80,10 @@
                                         Height="300"
                                         TooltipPosition="Top"/>
                 </StackPanel>
-            </ui:Card>
+            </Border>
 
             <!-- Top 5 list -->
-            <ui:Card Margin="0,0,0,16"
+            <Border Margin="0,0,0,16" CornerRadius="8"
                      Background="{DynamicResource SystemControlAcrylicElementBrush}"
                      BorderBrush="{DynamicResource SystemControlForegroundTransparentBrush}"
                      BorderThickness="1">
@@ -115,7 +115,7 @@
                         </ItemsControl.ItemTemplate>
                     </ItemsControl>
                 </StackPanel>
-            </ui:Card>
+            </Border>
 
         </StackPanel>
     </ScrollViewer>

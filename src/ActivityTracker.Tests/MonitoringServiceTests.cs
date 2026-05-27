@@ -1,5 +1,6 @@
 using ActivityTracker.Core.Models;
 using ActivityTracker.Core.Services;
+using Xunit;
 
 namespace ActivityTracker.Tests;
 
